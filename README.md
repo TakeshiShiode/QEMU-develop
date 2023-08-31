@@ -1,2 +1,2 @@
 # QEMU-develop
-for qemu developing and testing in persnoal use
+qemu developing and testing for persnoal use
