@@ -207,7 +207,18 @@ static void stm32f746_usart_write(void *opaque, hwaddr addr,
         }
         return;
     case USART_TDR:
-        s->usart_tdr = value;
+        if (value < 0xF000) {
+            ch = value;
+            /* XXX this blocks entire thread. Rewrite to use
+             * qemu_chr_fe_write and background I/O callbacks */
+            qemu_chr_fe_write_all(&s->chr, &ch, 1);
+            /* XXX I/O are currently synchronous, making it impossible for
+               software to observe transient states where TXE or TC aren't
+               set. Unlike TXE however, which is read-only, software may
+               clear TC by writing 0 to the SR register, so set it again
+               on each write. */
+            s->usart_isr |= USART_SR_TC;
+        }
         return;
     default:
         qemu_log_mask(LOG_GUEST_ERROR,
