@@ -89,6 +89,43 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
+//---------------------------------------------------------------------------
+/// @brief ビット定義
+//---------------------------------------------------------------------------
+#define	Bit0			0x00000001
+#define	Bit1			0x00000002
+#define	Bit2			0x00000004
+#define	Bit3			0x00000008
+#define	Bit4			0x00000010
+#define	Bit5			0x00000020
+#define	Bit6			0x00000040
+#define	Bit7			0x00000080
+#define	Bit8			0x00000100
+#define	Bit9			0x00000200
+#define	Bit10			0x00000400
+#define	Bit11			0x00000800
+#define	Bit12			0x00001000
+#define	Bit13			0x00002000
+#define	Bit14			0x00004000
+#define	Bit15			0x00008000
+#define	Bit16			0x00010000
+#define	Bit17			0x00020000
+#define	Bit18			0x00040000
+#define	Bit19			0x00080000
+#define	Bit20			0x00100000
+#define	Bit21			0x00200000
+#define	Bit22			0x00400000
+#define	Bit23			0x00800000
+#define	Bit24			0x01000000
+#define	Bit25			0x02000000
+#define	Bit26			0x04000000
+#define	Bit27			0x08000000
+#define	Bit28			0x10000000
+#define	Bit29			0x20000000
+#define	Bit30			0x40000000
+#define	Bit31			0x80000000
+/* USER CODE END Private defines */
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

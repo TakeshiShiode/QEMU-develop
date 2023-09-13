@@ -17,9 +17,11 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <stdarg.h>
 #include "main.h"
 #include "cmsis_os.h"
 
+#include "test_printf.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -48,6 +50,10 @@ osThreadId myTask02Handle;
 osThreadId myTask03Handle;
 /* USER CODE BEGIN PV */
 
+
+static void stm32f746_uart_fput(char c);
+void target_fput_log(char c);
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,6 +63,8 @@ static void MX_USART3_UART_Init(void);
 void StartDefaultTask(void const * argument);
 void StartTask02(void const * argument);
 void StartTask03(void const * argument);
+
+void test_printf(const char *fmt, ...);
 
 /* USER CODE BEGIN PFP */
 
@@ -362,15 +370,14 @@ void StartTask02(void const * argument)
 {
   /* USER CODE BEGIN StartTask02 */
   /* Infinite loop */
-  	char text = 'a';
- 	const uint8_t *pData = (const uint8_t *)&text;
-  
   for(;;)
   {
 
-	HAL_UART_Transmit(&huart3, pData, sizeof(pData), 20);
-    osDelay(1000);
-    text += 1;
+	static int stime = 0;
+	//syslog(LOG_NOTICE, "serial\t %d", stime);
+    test_printf("serial_debug %d\n", stime);
+	osDelay(500);
+    stime += 1;
   }
   /* USER CODE END StartTask02 */
 }
@@ -445,3 +452,34 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
+/* 評価用デバッグログ出力 */
+void test_printf(const char *fmt, ...)
+{
+	va_list ap;
+	va_start(ap, fmt);
+	test_vprintf(target_fput_log, fmt, ap);
+	va_end(ap);
+}
+
+//::::::::::::基板依存：：：：：：：：：：：：：：：：
+/*
+ *  SIOポートへの文字出力
+ */
+
+static void stm32f746_uart_fput(char c)
+{
+	/*
+	 *  送信できるまでポーリング
+	 */
+	while((USART3->ISR & Bit7) == 0)  osDelay(1);
+	USART3->TDR = (uint32_t)c;
+}
+
+void target_fput_log(char c)
+{
+	if (c == '\n') {
+		stm32f746_uart_fput('\r');
+	}
+	stm32f746_uart_fput(c);
+}
