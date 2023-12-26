@@ -1,0 +1,11 @@
+LIBRARY scibldcinterrupt
+
+EXPORTS
+		SciHandleInit		@1
+		SciReqInt_BLDC		@2
+
+		SciGetBLDC_PWM_U	@3
+		SciGetBLDC_PWM_V	@4
+		SciGetBLDC_PWM_W	@5
+		SciSetBLDCData		@6
+

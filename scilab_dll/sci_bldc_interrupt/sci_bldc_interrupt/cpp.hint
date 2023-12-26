@@ -1,0 +1,2 @@
+#define SCIBLDCINTERRUPT_API __declspec(dllexport)
+#define SCIBLDCINTERRUPT_API __declspec(dllimport)

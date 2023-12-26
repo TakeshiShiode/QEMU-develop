@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  dllmain.cpp
+  sci_bldc.cpp
+C:\work2020\renesas_rx\an_r01an1663jj0100_rx62t_motor\workspace\RX62T_RSSK_SSNS_ENCD_FOC_ICS_CSP_V100\scilab_dll\sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(130,35): warning C4244: '=': 'double' から 'short' への変換です。データが失われる可能性があります。
+C:\work2020\renesas_rx\an_r01an1663jj0100_rx62t_motor\workspace\RX62T_RSSK_SSNS_ENCD_FOC_ICS_CSP_V100\scilab_dll\sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(137,6): warning C4101: 'i': ローカル変数は 1 度も使われていません。
+  sci_bldc_interrupt.cpp
+  コードを生成中...
+  sci_bldc_interrupt.vcxproj -> C:\work2020\renesas_rx\an_r01an1663jj0100_rx62t_motor\workspace\RX62T_RSSK_SSNS_ENCD_FOC_ICS_CSP_V100\scilab_dll\sci_bldc_interrupt\Debug\SCIBLDCINTERRUPT.dll

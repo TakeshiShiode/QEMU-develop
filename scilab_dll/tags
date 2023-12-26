@@ -1,0 +1,13 @@
+sci_bldc_interrupt\sci_bldc_interrupt\dllmain.cpp(5) : BOOL APIENTRY DllMain(HMODULE hModule,
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(23) : void SetBLDCMemoryAddress(BYTE* Adr)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(28) : void SciGetBLDC_PWM_U(double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(44) : void SciGetBLDC_PWM_V(double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(59) : void SciGetBLDC_PWM_W(double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(74) : void SciSetBLDCData(double *pos, double *vdc, double *iu, double *iw, double *omega, double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc.cpp(135) : void SciInitBLDCData(void)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(24) : SCIBLDCINTERRUPT_API int fnscibldcinterrupt(void)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(30) : Cscibldcinterrupt::Cscibldcinterrupt()
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(41) : void SciHandleInit(double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(69) : void SciReqInt_BLDC(double *ret)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(95) : void SciReleaseInt(void)
+sci_bldc_interrupt\sci_bldc_interrupt\sci_bldc_interrupt.cpp(104) : void CreateConsole(void) {
